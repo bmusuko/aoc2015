@@ -14,7 +14,7 @@ let read_lines filename =
     close_in_noerr ic;
     raise e
 
-let file = "../data/01/input.txt"
+let file = "../data/input.txt"
 let lines = read_lines file
 
 
