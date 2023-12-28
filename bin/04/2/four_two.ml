@@ -38,7 +38,7 @@ let starts_with prefix word =
 let solve line = 
   let rec find_hash prefix counter =
     let hash =  combine prefix counter |> md5_hash in
-    if starts_with "00000" hash then
+    if starts_with "000000" hash then
       counter
     else 
       find_hash prefix (counter + 1)
