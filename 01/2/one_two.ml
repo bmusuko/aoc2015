@@ -19,21 +19,24 @@ let lines = read_lines file
 
 
 let solve line =
-  let rec count pattern =
+  let rec count pattern sum idx =
     match pattern with
-    | [] -> 0
+    | [] -> -1
     | head::tail -> 
-        if head = '(' then 1 + count tail
-        else -1 + count tail
+        let new_sum =  if head = ')'  then sum  -1 else sum + 1 in
+        if new_sum = -1 then
+          idx
+        else
+           count tail new_sum idx+1
   in
 
-let string_to_char_list str =
-  str |> String.to_seq |> List.of_seq 
-in
+  let string_to_char_list str =
+    str |> String.to_seq |> List.of_seq 
+  in
 
-let answer = count (string_to_char_list line) in
+  let answer = count (string_to_char_list line) 0 1 in
 
-Printf.printf "Count: %d\n" (answer)
+  Printf.printf "Count: %d\n" (answer)
 
 
 
