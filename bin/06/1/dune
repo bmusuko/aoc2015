@@ -1,0 +1,3 @@
+(executable
+ (name six_one) 
+ (libraries base))
