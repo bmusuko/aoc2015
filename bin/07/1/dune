@@ -1,0 +1,3 @@
+(executable
+ (name seven_one) 
+ (libraries core))
